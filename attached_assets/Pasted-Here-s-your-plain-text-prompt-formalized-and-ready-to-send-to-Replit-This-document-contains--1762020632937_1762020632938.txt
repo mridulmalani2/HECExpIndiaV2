@@ -1,0 +1,30 @@
+Here’s your plain-text prompt, formalized and ready to send to Replit:
+
+---
+
+This document contains extremely detailed instructions on what needs to be done next for the Experience India website. You can use the citations, layout ideas, and concepts inside it to understand the project direction. Please do not maintain the original layout or format of the MVP site — that version was just built for basic screenshots and testing. Now, we need to overhaul the entire visual and functional experience.
+
+Right now, the site looks bland and outdated — plain white background, large glaring cards, no design appeal. The goal is to make it modern, sleek, aesthetic, and responsive. Cards should be smaller, have clear black boundaries, and visually expand on hover. When clicked, the card should open a modal pop-up. Inside the modal, clicking “visit” should redirect to the `source_url` of that item.
+
+You can suggest or explore layout changes — for example, switching from vertical scrolling to a horizontal layout with tabs on top. Each section can have a unique background image (I’ll provide those) with transparent overlays for readability. The site should have smooth transitions, soft scrolling, and an elegant modern UI. Avoid anything funky or childish — keep it elegant, smart, and design-driven.
+
+Add the following new features:
+
+1. Google Sign-In for users.
+2. A universal comment/suggestion box for users to share ideas or request new content.
+3. Section backgrounds should support full-width images with transparent overlays.
+4. Make the layout and code modular — future sections may be added.
+
+The website’s purpose is to help international students explore Indian culture and help Indian students access global resources. Keep this goal in mind while suggesting features or layout improvements.
+
+Below are the live CSVs published via Google Sheets — please connect these directly to the site (so we can remove local CSVs from GitHub):
+
+* News: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=0&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=0&single=true&output=csv)
+* Restaurants: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1744464793&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1744464793&single=true&output=csv)
+* Resources: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=6162414&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=6162414&single=true&output=csv)
+* Recipes: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=421492630&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=421492630&single=true&output=csv)
+* Events: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1160517921&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1160517921&single=true&output=csv)
+* About: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1083212065&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1083212065&single=true&output=csv)
+* Bollywood: [https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1569893815&single=true&output=csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1569893815&single=true&output=csv)
+
+Please read and interpret the attached PDF thoroughly before continuing. Then move ahead with a clean, elegant redesign that looks modern and performs smoothly. Prioritize UX quality, responsiveness, and maintainability.
