@@ -46,7 +46,7 @@ export const siteConfig: SiteConfig = {
       description: 'What\'s happening in India?',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=0&single=true&output=csv',
       enabled: true,
-      backgroundImage: '/attached_assets/stock_images/indian_news_journali_bf547ce9.jpg',
+      backgroundImage: '/images/indian_news_journali_bf547ce9.jpg',
       fieldMappings: {
         title: ['title', 'headline', 'name'],
         description: ['description', 'summary', 'snippet'],
@@ -61,7 +61,7 @@ export const siteConfig: SiteConfig = {
       description: 'Classic and contemporary Indian cinema',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1569893815&single=true&output=csv',
       enabled: true,
-      backgroundImage: '/attached_assets/stock_images/bollywood_cinema_mov_e6c8b2c3.jpg',
+      backgroundImage: '/images/bollywood_cinema_mov_e6c8b2c3.jpg',
       fieldMappings: {
         title: ['title', 'movie title', 'name'],
         description: ['description', 'summary', 'plot'],
@@ -76,7 +76,7 @@ export const siteConfig: SiteConfig = {
       description: 'Authentic Indian dining in Paris',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1744464793&single=true&output=csv',
       enabled: true,
-      backgroundImage: '/attached_assets/stock_images/indian_restaurant_fo_123dcf36.jpg',
+      backgroundImage: '/images/indian_restaurant_fo_123dcf36.jpg',
       fieldMappings: {
         title: ['name', 'restaurant name', 'title'],
         description: ['description', 'about', 'cuisine'],
@@ -91,7 +91,7 @@ export const siteConfig: SiteConfig = {
       description: 'Easy Indian recipes for students',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=421492630&single=true&output=csv',
       enabled: true,
-      backgroundImage: '/attached_assets/stock_images/indian_cooking_spice_42bc4676.jpg',
+      backgroundImage: '/images/indian_cooking_spice_42bc4676.jpg',
       fieldMappings: {
         title: ['title', 'recipe name', 'name'],
         description: ['description', 'summary'],
@@ -106,7 +106,7 @@ export const siteConfig: SiteConfig = {
       description: 'Cultural events and celebrations',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1160517921&single=true&output=csv',
       enabled: true,
-      backgroundImage: '/attached_assets/stock_images/indian_festival_cult_d86f9830.jpg',
+      backgroundImage: '/images/indian_festival_cult_d86f9830.jpg',
       fieldMappings: {
         title: ['title', 'event name', 'name'],
         description: ['description', 'details'],
@@ -121,7 +121,7 @@ export const siteConfig: SiteConfig = {
       description: 'Helpful guides and information',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=6162414&single=true&output=csv',
       enabled: true,
-      backgroundImage: '/attached_assets/stock_images/india_travel_guide_t_eb81754d.jpg',
+      backgroundImage: '/images/india_travel_guide_t_eb81754d.jpg',
       fieldMappings: {
         title: ['title', 'name'],
         description: ['description', 'summary'],
