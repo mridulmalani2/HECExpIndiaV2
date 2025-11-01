@@ -1,4 +1,4 @@
-modules = ["web", "nodejs-18", "python-3.12"]
+modules = ["web", "python-3.12", "nodejs-22"]
 [agent]
 expertMode = true
 
@@ -21,23 +21,23 @@ args = "dev-server"
 name = "dev-server"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run serve"
-waitForPort = 5000
-
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
 
 [[ports]]
 localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 45237
+localPort = 42387
 externalPort = 3000
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["npx", "@11ty/eleventy", "--serve", "--port=5000"]
+run = ["npx", "vite", "preview", "--host=0.0.0.0", "--port=5000"]
 build = ["npm", "run", "build"]

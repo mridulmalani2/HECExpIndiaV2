@@ -1,0 +1,73 @@
+<h1>HEC ExperienceIndia - Replit Setup</h1>
+<h2>Overview</h2>
+<p>This is a cultural discovery platform for HEC Paris students to explore Indian culture, food, cinema, and events. The site is built using <strong>Eleventy (11ty)</strong>, a static site generator with Nunjucks templating.</p>
+<h2>Project Status</h2>
+<ul>
+<li>✅ Eleventy static site generator configured and running</li>
+<li>✅ Development server running on port 5000 with 0.0.0.0 host</li>
+<li>✅ Deployment configuration set for production (autoscale)</li>
+<li>✅ All CSV data files in <code>/data</code> directory</li>
+<li>✅ Static assets (CSS, JS) properly configured</li>
+</ul>
+<h2>Tech Stack</h2>
+<ul>
+<li><strong>Frontend:</strong> Eleventy (11ty) v3.1.2 with Nunjucks templating</li>
+<li><strong>Data:</strong> CSV files (news, bollywood, restaurants, recipes, events, resources, about)</li>
+<li><strong>Styling:</strong> Custom CSS with Bootstrap framework</li>
+<li><strong>Hosting:</strong> Static site built to <code>_site/</code> directory</li>
+<li><strong>Node.js:</strong> v18+</li>
+</ul>
+<h2>Project Structure</h2>
+<pre><code>├── _data/              # Eleventy data files (JS modules that parse CSVs)
+├── _includes/          # Nunjucks layouts and partials
+│   └── base.njk       # Base layout template
+├── _site/             # Generated static site (not in git)
+├── data/              # CSV data files
+├── static/            # CSS, JS, images
+├── templates/         # Page templates
+│   └── index.html     # Main page template
+├── .eleventy.js       # Eleventy configuration
+└── package.json       # Node dependencies
+</code></pre>
+<h2>Key Configuration</h2>
+<h3>Eleventy Server</h3>
+<ul>
+<li><strong>Port:</strong> 5000</li>
+<li><strong>Host:</strong> 0.0.0.0 (allows Replit proxy)</li>
+<li><strong>Dev Command:</strong> <code>npm run serve</code></li>
+<li><strong>Build Command:</strong> <code>npm run build</code></li>
+</ul>
+<h3>Deployment</h3>
+<ul>
+<li><strong>Type:</strong> Autoscale (static site)</li>
+<li><strong>Build:</strong> <code>npm run build</code></li>
+<li><strong>Output:</strong> <code>_site/</code> directory</li>
+</ul>
+<h2>Content Sections</h2>
+<p>The site includes these sections (all driven by CSV data):</p>
+<ul>
+<li>📰 News</li>
+<li>🎬 Bollywood</li>
+<li>🍛 Restaurants</li>
+<li>🍲 Recipes</li>
+<li>🎭 Events</li>
+<li>📚 Resources</li>
+<li>ℹ️ About</li>
+</ul>
+<h2>Alternative Backend (Not Used)</h2>
+<p>There's also a Flask backend (<code>app.py</code>) in the repository that could serve the same content dynamically, but <strong>Eleventy is the primary/active system</strong> as indicated by the build configuration.</p>
+<h2>Development Notes</h2>
+<ul>
+<li>The site uses CSV files for all content</li>
+<li>Data is parsed at build time by JS files in <code>_data/</code></li>
+<li>Templates use Nunjucks templating language</li>
+<li>Static assets are copied to <code>_site/</code> during build</li>
+<li>Site auto-rebuilds when files change in dev mode</li>
+</ul>
+<h2>Recent Setup (Nov 1, 2025)</h2>
+<ul>
+<li>Configured Eleventy to serve on 0.0.0.0:5000 for Replit compatibility</li>
+<li>Added .gitignore for node_modules and build artifacts</li>
+<li>Set up dev-server workflow</li>
+<li>Configured deployment for production publishing</li>
+</ul>

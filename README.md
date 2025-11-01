@@ -1,98 +1,293 @@
-# 🌏 HEC ExperienceIndia
+# 🌏 Experience India
 
-**A cultural bridge for Indian and international students at HEC Paris.**
+**A modern cultural discovery platform for HEC Paris students**
 
-HEC ExperienceIndia is a student-led initiative to help HEC Paris students and the wider international community explore Indian culture through movies, food, sports, and more. This repository hosts the source code and assets for the public-facing website — a **lightweight, content-first digital hub** built using HTML, CSS, and JavaScript (static MVP), with future scalability to Bubble.io or similar dynamic platforms.
+Experience India is a beautifully designed, performance-optimized web application that helps HEC Paris students and the international community explore Indian culture through movies, food, events, and more.
 
----
-
-## 📋 Overview
-
-**Goal:**  
-To provide a simple, accessible, and visually engaging platform for discovering Indian culture in and around Paris — from **Bollywood and sports** to **recipes, restaurants, and student life**.
-
-**Status:**  
-MVP completed — static HTML site hosted on Netlify. Future roadmap includes Google sign-in, reviews, and content management system integration.
+![Built with React, TypeScript, Tailwind CSS](https://img.shields.io/badge/Built%20with-React%20%7C%20TypeScript%20%7C%20Tailwind-blue)
 
 ---
 
-## 🧭 Sections
+## ✨ Features
 
-| Section | Description |
-|----------|--------------|
-| 📰 **News** | Curated live updates from Indian and France-based publications. |
-| 🎬 **Bollywood** | “Old is Gold” classics + new releases (with posters, summaries, streaming links). |
-| 🍛 **Restaurants** | Curated list of Indian restaurants in Paris with Google Maps integration and reviews. |
-| 🏏 **Sports** | Embedded cricket, hockey, and kabaddi highlights via free YouTube widgets. |
-| 🍲 **Recipes** | Easy-to-cook Indian recipes for students using local supermarket ingredients. |
-| 📸 **Avouspace (Instagram)** | Embedded student-led Instagram feed for Indian students in France. |
-| 🤝 **Mentorship (Unibuddy)** | Explains HEC’s peer-mentorship system and how to connect. |
-| 🎭 **Events** | Indian cultural events in Paris with links to ticketing (e.g., Shotgun). |
-| ℹ️ **About** | Founder bio, intent statement, and contact info. |
-| 🚧 **Coming Soon** | Teasers for Phase 2 features — “Find an Indian Student Guide” & “Rent a Room.” |
+### 🎨 Modern Design
+- **Indian-Modern Color Palette**: Saffron, peacock blue, turmeric gold
+- **Light/Dark Theme**: Seamless theme switching with system preference detection
+- **Glass-morphism UI**: Sticky navbar with backdrop blur effects
+- **Smooth Animations**: Powered by Framer Motion for delightful interactions
+- **Responsive Design**: Mobile-first, works beautifully on all devices
 
----
+### 🚀 Performance
+- **Lazy Loading**: Images load on demand with intersection observer
+- **Smart Caching**: 5-minute cache for Google Sheets data
+- **Optimized Builds**: Vite for lightning-fast development and production builds
+- **SEO Ready**: Meta tags and Open Graph configuration included
 
-## 💡 Features (MVP)
-
-- Responsive, pastel-tone design with subtle scroll animations.  
-- Three custom fonts:  
-  - *Great Vibes* (script titles)  
-  - *Playfair Display* (headings)  
-  - *Nunito* (body text)  
-- CSV-based data for News, Bollywood, and Restaurant listings.  
-- “Load More” pagination for long lists.  
-- “See More” toggle for Bollywood films.  
-- Minimalistic static front-end; ready for upgrade to a Bubble.io or Firebase backend.
+### 📊 Content Management
+- **Google Sheets Integration**: Pull data directly from Google Sheets
+- **CSV Fallback**: Works with local CSV files when sheets aren't configured
+- **Live Search**: Filter across all sections in real-time
+- **Load More Pagination**: Configurable items per page
+- **Accessible Modals**: WCAG AA compliant detail views
 
 ---
 
-## 🧱 Tech Stack
+## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, CSS3 (Tailwind), JavaScript (ES6)  
-- **Data Source:** CSV files (static) → planned integration with Google Sheets  
-- **Hosting:** Netlify (Static Deployment)  
-- **Version Control:** Git / GitHub  
-
----
-
-## 🚀 Roadmap
-
-| Phase | Description |
-|--------|--------------|
-| **Phase 1 (MVP)** | Static HTML site linked to CSV datasets (News, Restaurants, Movies). ✅ |
-| **Phase 2** | Add user reviews & Google OAuth login for comments. |
-| **Phase 3** | Build admin panel on Bubble.io for dynamic content management. |
-| **Phase 4** | Launch “Find an Indian Guide” and “Rent a Room” micro-services. |
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom Indian-inspired theme
+- **Animations**: Framer Motion
+- **Data Fetching**: React Query (TanStack Query)
+- **UI Components**: Headless UI for accessibility
+- **Build Tool**: Vite 6
+- **CSV Parsing**: PapaParse
 
 ---
 
-## 💰 Budget (Initial)
+## 🚀 Quick Start
 
-| Item | Cost (€) | Notes |
-|------|-----------|-------|
-| Bubble Starter Tier | 30 | Includes custom domain, database, authentication |
-| Domain (.com/.fr) | 10 | Annual |
-| Plugins / Cloudinary | 5 | Image hosting |
-| Design Assets | 5 | Icons and templates |
-| **Total** | **€50** | One-time setup |
+### Prerequisites
+- Node.js 22+ (required for Vite 6)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd experience-india
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+   
+   The app will be available at `http://localhost:5000`
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-## 👨‍💻 Founder
+## 📝 Configuration
+
+### Google Sheets Setup
+
+1. **Create your Google Sheet** with data organized in rows and columns
+
+2. **Make the sheet publicly accessible**
+   - File → Share → Get link
+   - Change to "Anyone with the link can view"
+   - Copy the share URL
+
+3. **Configure in your app**
+   
+   Edit `src/config/site.config.ts`:
+   
+   ```typescript
+   sections: [
+     {
+       id: 'news',
+       title: 'News',
+       emoji: '📰',
+       description: 'Latest updates from India and France',
+       sheetUrl: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit#gid=YOUR_GID',
+       enabled: true,
+     },
+     // ... more sections
+   ]
+   ```
+
+4. **Alternative: Use environment variables**
+   
+   Create `.env` from `.env.example`:
+   
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Then set your sheet URLs:
+   ```
+   VITE_SHEET_NEWS=https://docs.google.com/spreadsheets/d/...
+   VITE_SHEET_BOLLYWOOD=https://docs.google.com/spreadsheets/d/...
+   ```
+
+### Customization
+
+#### Branding
+Update logo and site info in `src/config/site.config.ts`:
+```typescript
+export const siteConfig = {
+  title: 'Your Site Name',
+  description: 'Your description',
+  logoUrl: 'https://your-logo-url.com/logo.png',
+  // ...
+}
+```
+
+#### Theme Colors
+Modify Tailwind theme in `tailwind.config.js`:
+```javascript
+colors: {
+  saffron: { /* your colors */ },
+  peacock: { /* your colors */ },
+  // ...
+}
+```
+
+#### Cards Per Page
+Adjust in `src/config/site.config.ts`:
+```typescript
+features: {
+  cardsPerPage: 6, // Change to your preference
+}
+```
+
+---
+
+## 📂 Project Structure
+
+```
+├── src/
+│   ├── components/        # React components
+│   │   ├── Navbar.tsx    # Glass-morphism navbar
+│   │   ├── Hero.tsx      # Landing hero section
+│   │   ├── Section.tsx   # Content section wrapper
+│   │   ├── Card.tsx      # Individual card component
+│   │   ├── CardModal.tsx # Accessible detail modal
+│   │   └── Footer.tsx    # Site footer
+│   ├── config/
+│   │   └── site.config.ts # Main configuration file
+│   ├── hooks/
+│   │   └── useTheme.ts   # Theme switching logic
+│   ├── lib/
+│   │   └── sheets.ts     # Google Sheets integration
+│   ├── types/
+│   │   └── index.ts      # TypeScript definitions
+│   ├── App.tsx           # Main app component
+│   ├── main.tsx          # React entry point
+│   └── index.css         # Global styles
+├── public/
+│   └── data/             # CSV fallback files
+├── index.html
+├── vite.config.ts
+├── tailwind.config.js
+└── package.json
+```
+
+---
+
+## 🎯 Adding New Sections
+
+1. **Add data to Google Sheets** or create a CSV file in `public/data/`
+
+2. **Update configuration** in `src/config/site.config.ts`:
+
+```typescript
+sections: [
+  // ... existing sections
+  {
+    id: 'your-section',
+    title: 'Your Section',
+    emoji: '🎨',
+    description: 'Section description',
+    sheetUrl: '', // Add your Google Sheet URL
+    enabled: true,
+    fieldMappings: {
+      title: ['title', 'name'],           // Column names for title
+      description: ['description', 'summary'],
+      image: ['image', 'photo'],
+      link: ['url', 'link'],
+    },
+  },
+]
+```
+
+3. **That's it!** The section will automatically appear in:
+   - Navigation menu
+   - Hero quick links
+   - Main content area
+   - Footer links
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Netlify
+
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy the `dist/` folder**
+   - Connect your Git repository to Netlify
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+
+### Deploy to Vercel
+
+1. **Install Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy**
+   ```bash
+   vercel --prod
+   ```
+
+### Deploy on Replit
+
+The app is already configured for Replit:
+- Development server runs on port 5000
+- Click "Run" to start the dev server
+- Click "Deploy" to publish to production
+
+---
+
+## 🎨 Design Philosophy
+
+### Visual Language
+- **Generous Whitespace**: Let content breathe
+- **Typography Hierarchy**: Playfair Display (serif) for headings, Inter for body
+- **Color Psychology**: Warm saffron for CTAs, cool peacock for accents
+- **Motion Design**: Subtle animations enhance UX without distraction
+
+### Component System
+- **Atomic Design**: Reusable, composable components
+- **Configuration-Driven**: Add sections without touching component code
+- **Accessibility-First**: Keyboard navigation, ARIA labels, WCAG AA compliant
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 📧 Contact
 
 **Mridul Malani**  
-Master’s in Management, HEC Paris  
-📧 [mridul.malani@hec.edu](mailto:mridul.malani@hec.edu)  
-📞 +33 07 45 99 31 04  
+Master's in Management, HEC Paris  
+📧 mridul.malani@hec.edu  
+📞 +33 07 45 99 31 04
 
 ---
 
+## 📄 License
 
-### ⭐ Acknowledgments
-
-Special thanks to the HEC Paris student community for their support and contributions to this initiative.
+This project is open source and available under the MIT License.
 
 ---
 
-> “HEC ExperienceIndia is more than a website — it’s a community platform designed to celebrate India’s cultural vibrancy within the HEC ecosystem.”
+> **"Experience India is more than a website — it's a community platform designed to celebrate India's cultural vibrancy."**
