@@ -132,6 +132,7 @@ sections: [
 ### User Experience
 - ✅ Sticky glass navbar with smooth scrolling
 - ✅ Language toggle (EN/FR) using Google Translate widget
+  - **Note:** Google Translate widget only works in production/published deployments, not in Replit dev preview
 - ✅ Theme toggle (light/dark with localStorage persistence)
 - ✅ Global search across all sections
 - ✅ Load more pagination (configurable cards per page)
