@@ -41,7 +41,6 @@ export function Section({ section, searchQuery }: SectionProps) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-3">
-              <span className="mr-3">{section.emoji}</span>
               {section.title}
             </h2>
           </div>
@@ -67,7 +66,6 @@ export function Section({ section, searchQuery }: SectionProps) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-3">
-              <span className="mr-3">{section.emoji}</span>
               {section.title}
             </h2>
           </div>
@@ -87,7 +85,6 @@ export function Section({ section, searchQuery }: SectionProps) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-3">
-              <span className="mr-3">{section.emoji}</span>
               {section.title}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -135,7 +132,6 @@ export function Section({ section, searchQuery }: SectionProps) {
             className="text-center mb-12"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-3">
-              <span className="mr-3">{section.emoji}</span>
               <span className="gradient-text">{section.title}</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
