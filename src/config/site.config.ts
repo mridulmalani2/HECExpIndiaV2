@@ -7,6 +7,8 @@ export interface SectionConfig {
   sheetId?: string
   gid?: string
   enabled: boolean
+  backgroundImage?: string
+  backgroundOverlay?: string
   fieldMappings?: {
     title?: string[]
     description?: string[]

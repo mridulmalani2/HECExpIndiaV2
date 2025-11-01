@@ -21,10 +21,33 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-saffron-50 via-peacock-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-950" />
       
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-saffron-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-peacock-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000" />
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000" />
+      {/* Rangoli-inspired decorative elements */}
+      <div className="absolute inset-0 opacity-20 dark:opacity-30">
+        {/* Large rangoli circles with color pops */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-saffron-500 to-orange-400 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-pulse" />
+        <div className="absolute top-40 right-10 w-80 h-80 bg-gradient-to-br from-peacock-500 to-cyan-400 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-gradient-to-br from-pink-500 to-rose-400 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-gradient-to-br from-turmeric-500 to-yellow-400 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-gradient-to-br from-indigo-500 to-purple-400 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+      </div>
+
+      {/* Geometric rangoli patterns */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
+        <svg className="absolute top-10 right-20 w-64 h-64 text-saffron-600 dark:text-saffron-400 animate-spin-slow" fill="currentColor" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="4" />
+          <circle cx="50" cy="30" r="3" />
+          <circle cx="50" cy="70" r="3" />
+          <circle cx="30" cy="50" r="3" />
+          <circle cx="70" cy="50" r="3" />
+          <circle cx="35" cy="35" r="2" />
+          <circle cx="65" cy="35" r="2" />
+          <circle cx="35" cy="65" r="2" />
+          <circle cx="65" cy="65" r="2" />
+        </svg>
+        
+        <svg className="absolute bottom-20 left-20 w-72 h-72 text-peacock-600 dark:text-peacock-400 animate-spin-slow" fill="currentColor" viewBox="0 0 100 100" style={{ animationDirection: 'reverse' }}>
+          <path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" />
+        </svg>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">

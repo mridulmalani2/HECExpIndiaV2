@@ -106,8 +106,27 @@ export function Section({ section, searchQuery }: SectionProps) {
 
   return (
     <>
-      <section id={section.id} className="section-padding">
-        <div className="max-w-7xl mx-auto">
+      <section 
+        id={section.id} 
+        className="section-padding relative"
+        style={{
+          backgroundImage: section.backgroundImage ? `url(${section.backgroundImage})` : undefined,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        {/* Background overlay */}
+        {section.backgroundImage && (
+          <div 
+            className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-900/95"
+            style={{
+              backgroundColor: section.backgroundOverlay || undefined,
+            }}
+          />
+        )}
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
