@@ -43,7 +43,7 @@ export const siteConfig: SiteConfig = {
       id: 'news',
       title: 'News',
       emoji: '📰',
-      description: 'Latest updates from India and France',
+      description: 'What\'s happening in India?',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=0&single=true&output=csv',
       enabled: true,
       fieldMappings: {
@@ -127,7 +127,7 @@ export const siteConfig: SiteConfig = {
       id: 'about',
       title: 'About',
       emoji: 'ℹ️',
-      description: 'Learn more about Experience India',
+      description: 'Learn More About the Developer',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1083212065&single=true&output=csv',
       enabled: true,
       fieldMappings: {
