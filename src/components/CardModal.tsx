@@ -83,21 +83,7 @@ export function CardModal({ card, isOpen, onClose }: CardModalProps) {
                                 {key}
                               </dt>
                               <dd className="text-sm text-gray-900 dark:text-gray-100">
-                                {value.startsWith('http') ? (
-                                  <a
-                                    href={value}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-saffron-600 dark:text-saffron-400 hover:underline inline-flex items-center gap-1"
-                                  >
-                                    View link
-                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                  </a>
-                                ) : (
-                                  value
-                                )}
+                                {value}
                               </dd>
                             </div>
                           ))}
@@ -114,7 +100,7 @@ export function CardModal({ card, isOpen, onClose }: CardModalProps) {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        Visit Link
+                        Visit Source
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
