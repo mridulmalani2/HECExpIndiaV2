@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { siteConfig } from '@/config/site.config'
 import { GoogleAuth } from './GoogleAuth'
-import { LanguageToggle } from './LanguageToggle'
 
 interface NavbarProps {
   sections: Array<{ id: string; title: string; emoji: string }>
@@ -83,10 +82,6 @@ export function Navbar({ sections, onThemeToggle, theme }: NavbarProps) {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="hidden sm:block">
-                <LanguageToggle />
-              </div>
-
               <div className="hidden lg:block">
                 <GoogleAuth />
               </div>
@@ -120,10 +115,6 @@ export function Navbar({ sections, onThemeToggle, theme }: NavbarProps) {
             className="lg:hidden glass border-t border-gray-200/50 dark:border-gray-700/50"
           >
             <div className="px-4 py-4 space-y-2">
-              <div className="sm:hidden flex justify-center pb-3 border-b border-gray-200 dark:border-gray-700">
-                <LanguageToggle />
-              </div>
-              
               {sections.map((section) => (
                 <button
                   key={section.id}
