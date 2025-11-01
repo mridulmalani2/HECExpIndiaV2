@@ -147,6 +147,6 @@ export const siteConfig: SiteConfig = {
   features: {
     enableSearch: true,
     enableFiltering: true,
-    cardsPerPage: 6,
+    cardsPerPage: 8,
   },
 }

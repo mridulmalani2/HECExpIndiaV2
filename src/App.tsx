@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { Section } from './components/Section'
 import { Footer } from './components/Footer'
+import { CommentBox } from './components/CommentBox'
 import { useTheme } from './hooks/useTheme'
 import { siteConfig } from './config/site.config'
 
@@ -74,6 +75,8 @@ function App() {
       </main>
 
       <Footer />
+      
+      <CommentBox />
     </div>
   )
 }

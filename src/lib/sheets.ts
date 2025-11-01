@@ -30,10 +30,12 @@ function findValue(row: SheetRow, candidates: string[] = []): string {
 function convertSheetUrlToCsv(sheetUrl: string): string {
   if (!sheetUrl) return ''
   
-  if (sheetUrl.includes('/export?format=csv') || sheetUrl.includes('/pub?output=csv')) {
+  // Already in CSV format
+  if (sheetUrl.includes('/export?format=csv') || sheetUrl.includes('output=csv')) {
     return sheetUrl
   }
   
+  // Try to extract spreadsheet ID and gid from various URL formats
   const spreadsheetIdMatch = sheetUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/)
   const gidMatch = sheetUrl.match(/[#&]gid=([0-9]+)/)
   

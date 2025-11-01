@@ -45,9 +45,9 @@ export function Section({ section, searchQuery }: SectionProps) {
               {section.title}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="card h-96 animate-pulse">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="card h-96 animate-pulse border-2 border-gray-200 dark:border-gray-700">
                 <div className="aspect-[4/3] bg-gray-200 dark:bg-gray-700" />
                 <div className="p-5 space-y-3">
                   <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded" />
@@ -143,7 +143,7 @@ export function Section({ section, searchQuery }: SectionProps) {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-8">
             {visibleCards.map((card, index) => (
               <Card
                 key={card.id}
