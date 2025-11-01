@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { siteConfig } from '@/config/site.config'
+import { GoogleAuth } from './GoogleAuth'
 
 interface NavbarProps {
   sections: Array<{ id: string; title: string; emoji: string }>
@@ -81,6 +82,10 @@ export function Navbar({ sections, onThemeToggle, theme }: NavbarProps) {
             </div>
 
             <div className="flex items-center gap-3">
+              <div className="hidden lg:block">
+                <GoogleAuth />
+              </div>
+
               <motion.button
                 onClick={onThemeToggle}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
