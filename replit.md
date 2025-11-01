@@ -8,12 +8,12 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - ✅ **Development Server**: Running on port 5000 with Vite HMR
 - ✅ **Google Sheets Integration**: Live data fetching with smart caching
 - ✅ **Theme System**: Indian-modern light/dark modes
-- ✅ **Multi-Language Support**: EN/FR toggle using Google Translate widget
 - ✅ **Google Authentication**: Optional Google Sign-In in navbar
 - ✅ **User Engagement**: Floating comment/suggestion box
 - ✅ **Rangoli Decorations**: Vibrant Indian-inspired visual elements
 - ✅ **Deployment Ready**: Configured for autoscale production deployment
 - ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching
+- ✅ **Elegant Typography**: Cormorant Garamond navbar matching artistic hero design
 
 ## Tech Stack
 - **Frontend:** React 18 + TypeScript
@@ -31,9 +31,8 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 ```
 ├── src/
 │   ├── components/        # React components
-│   │   ├── Navbar.tsx    # Glass-morphism navbar with language toggle, Google Sign-In & theme
-│   │   ├── LanguageToggle.tsx # 🌐 EN|FR language switcher (Google Translate)
-│   │   ├── Hero.tsx      # Animated landing with rangoli decorations
+│   │   ├── Navbar.tsx    # Glass-morphism navbar with Google Sign-In & theme toggle
+│   │   ├── Hero.tsx      # Animated landing with rangoli decorations & image-based section tabs
 │   │   ├── Section.tsx   # Configurable content sections with background images
 │   │   ├── Card.tsx      # Individual content cards (4-column grid, borders)
 │   │   ├── CardModal.tsx # Accessible detail modal (Headless UI)
@@ -130,15 +129,14 @@ sections: [
 ## Features
 
 ### User Experience
-- ✅ Sticky glass navbar with smooth scrolling
-- ✅ Language toggle (EN/FR) using Google Translate widget
-  - **Note:** Google Translate widget only works in production/published deployments, not in Replit dev preview
+- ✅ Sticky glass navbar with smooth scrolling and Cormorant Garamond typography
 - ✅ Theme toggle (light/dark with localStorage persistence)
 - ✅ Global search across all sections
 - ✅ Load more pagination (configurable cards per page)
 - ✅ Click images to open external links
 - ✅ Click cards to view metadata modal
 - ✅ Keyboard accessible throughout
+- ✅ Image-based hero section tabs with bold, visible text
 
 ### Performance
 - ✅ Lazy image loading with IntersectionObserver
