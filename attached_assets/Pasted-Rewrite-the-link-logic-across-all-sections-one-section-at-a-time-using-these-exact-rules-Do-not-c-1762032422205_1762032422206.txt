@@ -1,0 +1,43 @@
+Rewrite the link logic across all sections, one section at a time, using these exact rules. Do not change layout or styling, only the behavior.
+
+Global rules
+
+1. Detect columns from the CSV header (Row A). Column names are case-sensitive.
+2. image_url: never display the URL text and never use it as any link. Only use it to render the image for that card (card thumbnail and, if needed, inside the modal). No element anywhere should ever redirect to image_url.
+3. source_url: never display the URL text. Use it only as the redirect target, and only when available.
+
+Per-section behavior (apply to News, Bollywood, Restaurants, Recipes, Events, Resources, PeopleSpeak, About if applicable)
+A) If the CSV for that section DOES NOT contain a source_url column in its header, disable all redirects for that section. Cards open the modal only; there is no external link at all.
+B) If the CSV DOES contain a source_url column:
+
+* For rows where source_url has a non-empty value, clicking the card’s “Visit” button in the modal opens source_url in a new tab (rel="noopener"). Card body click may open the modal only (not navigate), unless we already designed it to open the link; if so, keep only the modal + Visit behavior for consistency.
+* For rows where source_url is empty or invalid, there is NO redirect. Hide or disable the Visit button for that row and keep the card/modal fully functional without navigation.
+
+Implementation steps
+
+1. Data parsing: centralize CSV-to-object mapping so each record has { title, summary, image_url, source_url, ... } with undefined for missing columns. Do not fabricate URLs.
+2. Card render: set img.src = image_url (if present). Never set hrefs to image_url. Never render the raw URL text anywhere.
+3. Click handlers:
+
+   * Card click opens modal with title, summary, image preview.
+   * In the modal, render a Visit button only if record.source_url is a non-empty string. On click, window.open(record.source_url, "_blank", "noopener"); otherwise hide the button.
+   * Prevent any default anchors that currently point to image_url or to an empty string.
+4. Section-level switch: before rendering a section, compute hasSource = header includes "source_url". If hasSource is false, do not attach any redirect logic in that section at all (no Visit buttons).
+5. Accessibility: if Visit is hidden, ensure focus order still works; if visible, it must be focusable and have aria-label “Open source link”.
+6. Error handling: if image_url fails to load, fall back to a placeholder image. If source_url is malformed, treat it as absent (no redirect, hide Visit).
+7. Clean up any existing code that:
+
+   * assigns image_url to href or onclick,
+   * renders raw URL strings on the page,
+   * sets a default redirect when source_url is missing.
+
+Acceptance checklist (run for each section)
+
+* No URL text is visible anywhere.
+* Clicking a card always opens the modal, never navigates away.
+* The Visit button appears only when source_url exists for that row and opens a new tab to that URL.
+* If the section’s CSV has no source_url column at all, there are zero Visit buttons and zero redirects in that section.
+* No element ever redirects to an image_url.
+* Console shows a one-time warning per section if source_url column is missing (for developer awareness), but the UI remains clean.
+
+Make these changes now, section by section, and confirm in the console which sections had source_url in their headers and how many rows received Visit buttons.

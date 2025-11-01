@@ -48,6 +48,16 @@ function convertSheetUrlToCsv(sheetUrl: string): string {
   return sheetUrl
 }
 
+function isValidUrl(url: string | undefined): boolean {
+  if (!url || !url.trim()) return false
+  try {
+    new URL(url.trim())
+    return true
+  } catch {
+    return false
+  }
+}
+
 export async function fetchSheetData(
   section: SectionConfig
 ): Promise<CardData[]> {
@@ -88,11 +98,30 @@ export async function fetchSheetData(
       console.warn(`CSV parsing warnings for ${section.id}:`, parseResult.errors)
     }
 
+    const hasSourceUrlColumn = parseResult.data.length > 0 && 
+      Object.keys(parseResult.data[0]).some(key => 
+        normalizeKey(key) === normalizeKey('source_url')
+      )
+    
+    if (!hasSourceUrlColumn) {
+      console.warn(`⚠️ Section "${section.title}" (${section.id}): CSV does not contain a "source_url" column. No redirects will be available for this section.`)
+    } else {
+      console.log(`✓ Section "${section.title}" (${section.id}): "source_url" column detected.`)
+    }
+
+    let validLinkCount = 0
+
     const cards: CardData[] = parseResult.data.map((row, index) => {
       const title = findValue(row, section.fieldMappings?.title || ['title', 'name'])
       const description = findValue(row, section.fieldMappings?.description || ['description', 'summary'])
       const image = findValue(row, section.fieldMappings?.image || ['image', 'image url'])
-      const link = findValue(row, section.fieldMappings?.link || ['url', 'link'])
+      const rawLink = findValue(row, section.fieldMappings?.link || ['source_url', 'url', 'link'])
+      
+      const link = isValidUrl(rawLink) ? rawLink.trim() : undefined
+      
+      if (link && hasSourceUrlColumn) {
+        validLinkCount++
+      }
 
       const metadata: Record<string, string> = {}
       const excludeKeys = new Set<string>()
@@ -132,6 +161,10 @@ export async function fetchSheetData(
         section: section.id,
       }
     })
+
+    if (hasSourceUrlColumn) {
+      console.log(`  → ${validLinkCount} row(s) have valid source_url values`)
+    }
 
     cache.set(cacheKey, {
       data: cards,
