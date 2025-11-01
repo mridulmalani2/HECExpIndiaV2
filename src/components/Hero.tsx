@@ -1,6 +1,16 @@
 import { motion } from 'framer-motion'
 import { siteConfig } from '@/config/site.config'
 
+const sectionThumbnails: Record<string, string> = {
+  news: '/images/newspaper_headlines__b4b527d4.jpg',
+  bollywood: '/images/movie_film_reel_cine_9125d32c.jpg',
+  restaurants: '/images/indian_food_curry_pl_30e0f8db.jpg',
+  recipes: '/images/cooking_recipe_ingre_16fcac60.jpg',
+  events: '/images/cultural_festival_ce_6e502d40.jpg',
+  resources: '/images/books_library_learni_c4b0242b.jpg',
+  peoplespeak: '/images/people_talking_conve_56dc4ba5.jpg',
+}
+
 export function Hero() {
   const scrollToContent = () => {
     const firstSection = siteConfig.sections.find(s => s.enabled)
@@ -48,7 +58,7 @@ export function Hero() {
             <span className="block gradient-text">India</span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="hero-byline text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
             Experience India is a cultural-hub for international students interested in Indian culture, news, movies and more.
           </p>
 
@@ -85,22 +95,30 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto"
+          className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 max-w-6xl mx-auto"
         >
-          {siteConfig.sections.filter(s => s.enabled).slice(0, 6).map((section, index) => (
+          {siteConfig.sections.filter(s => s.enabled && s.id !== 'about').map((section, index) => (
             <motion.a
               key={section.id}
               href={`#${section.id}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 transition-all"
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="relative overflow-hidden rounded-xl group cursor-pointer h-32"
             >
-              <span className="text-4xl">{section.emoji}</span>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                {section.title}
-              </span>
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                style={{ 
+                  backgroundImage: `url(${sectionThumbnails[section.id] || ''})`,
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+              <div className="relative h-full flex items-end justify-center p-3">
+                <span className="section-tab text-white text-center text-sm drop-shadow-lg">
+                  {section.title}
+                </span>
+              </div>
             </motion.a>
           ))}
         </motion.div>

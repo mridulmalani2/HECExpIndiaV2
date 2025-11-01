@@ -56,11 +56,11 @@ export function Footer() {
               About This Project
             </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-              A student-led initiative to help HEC Paris students explore Indian culture through movies, food, sports, and more.
+              A student-led initiative to help international students explore Indian culture through movies, food, sports, and more.
             </p>
             <div className="flex gap-3">
               <a
-                href="mailto:mridul.malani@hec.edu"
+                href="mailto:mridul.malani@alumni.ashoka.edu.in"
                 className="text-gray-600 dark:text-gray-400 hover:text-saffron-600 dark:hover:text-saffron-400 transition-colors"
                 aria-label="Email"
               >

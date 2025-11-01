@@ -35,7 +35,7 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   title: 'Experience India',
-  description: 'Discover Indian culture, cuisine, and cinema with HEC Paris',
+  description: 'Discover Indian culture, cuisine, and cinema and more..',
   logoUrl: 'https://via.placeholder.com/150x50/f97316/ffffff?text=Experience+India',
   
   sections: [
@@ -127,6 +127,21 @@ export const siteConfig: SiteConfig = {
         description: ['description', 'summary'],
         image: ['image', 'thumbnail'],
         link: ['url', 'link', 'source_url'],
+      },
+    },
+    {
+      id: 'peoplespeak',
+      title: 'PeopleSpeak',
+      emoji: '💬',
+      description: 'Hear from the community',
+      sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1523155147&single=true&output=csv',
+      enabled: true,
+      backgroundImage: '/images/people_talking_conve_56dc4ba5.jpg',
+      fieldMappings: {
+        title: ['title', 'name'],
+        description: ['summary', 'description', 'content'],
+        image: ['image_url', 'image', 'photo', 'thumbnail'],
+        link: ['source_url', 'url', 'link'],
       },
     },
     {

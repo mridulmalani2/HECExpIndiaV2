@@ -67,6 +67,7 @@ export function Card({ card, onCardClick, index }: CardProps) {
             {card.section === 'recipes' && '🍲'}
             {card.section === 'events' && '🎭'}
             {card.section === 'resources' && '📚'}
+            {card.section === 'peoplespeak' && '💬'}
           </div>
         )}
         {hasLink && (
