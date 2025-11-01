@@ -99,6 +99,7 @@ export function CardModal({ card, isOpen, onClose }: CardModalProps) {
                         className="mt-6 inline-flex items-center gap-2 btn btn-primary"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
+                        aria-label="Open source link"
                       >
                         Visit Source
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
