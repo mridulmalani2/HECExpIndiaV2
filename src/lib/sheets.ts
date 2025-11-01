@@ -11,31 +11,13 @@ interface CacheEntry {
 
 const cache = new Map<string, CacheEntry>()
 
-function normalizeKey(key: string): string {
-  return key.toLowerCase().trim().replace(/[_-]/g, ' ')
-}
-
-function findValue(row: SheetRow, candidates: string[] = []): string {
-  for (const key in row) {
-    const normalizedKey = normalizeKey(key)
-    for (const candidate of candidates) {
-      if (normalizedKey === normalizeKey(candidate) || normalizedKey.includes(normalizeKey(candidate))) {
-        return row[key]?.trim() || ''
-      }
-    }
-  }
-  return ''
-}
-
 function convertSheetUrlToCsv(sheetUrl: string): string {
   if (!sheetUrl) return ''
   
-  // Already in CSV format
   if (sheetUrl.includes('/export?format=csv') || sheetUrl.includes('output=csv')) {
     return sheetUrl
   }
   
-  // Try to extract spreadsheet ID and gid from various URL formats
   const spreadsheetIdMatch = sheetUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/)
   const gidMatch = sheetUrl.match(/[#&]gid=([0-9]+)/)
   
@@ -99,76 +81,56 @@ export async function fetchSheetData(
       console.warn(`CSV parsing warnings for ${section.id}:`, parseResult.errors)
     }
 
-    const hasSourceUrlColumn = parseResult.data.length > 0 && 
-      Object.keys(parseResult.data[0]).some(key => 
-        normalizeKey(key) === normalizeKey('source_url')
-      )
-    
-    if (!hasSourceUrlColumn) {
-      console.warn(`⚠️ Section "${section.title}" (${section.id}): CSV does not contain a "source_url" column. No redirects will be available for this section.`)
-    } else {
-      console.log(`✓ Section "${section.title}" (${section.id}): "source_url" column detected.`)
+    if (parseResult.data.length === 0) {
+      console.warn(`⚠️ Section "${section.title}" (${section.id}): No data found in CSV`)
+      return []
     }
+
+    const columnNames = Object.keys(parseResult.data[0])
+    
+    console.log(`✓ Section "${section.title}" (${section.id}): Processing ${parseResult.data.length} rows with columns:`, columnNames)
 
     let validLinkCount = 0
 
-    const cards: CardData[] = parseResult.data.map((row, index) => {
-      const title = findValue(row, section.fieldMappings?.title || ['title', 'name'])
-      const description = findValue(row, section.fieldMappings?.description || ['description', 'summary'])
-      const image = findValue(row, section.fieldMappings?.image || ['image', 'image url'])
-      
-      let link: string | undefined = undefined
-      
-      if (hasSourceUrlColumn) {
-        const rawLink = findValue(row, section.fieldMappings?.link || ['source_url', 'url', 'link'])
-        if (isValidUrl(rawLink)) {
-          link = rawLink.trim()
+    const cards: CardData[] = parseResult.data
+      .map((row, index) => {
+        const rowValues = Object.values(row)
+        
+        const title = (rowValues[0] as string || '').trim()
+        const imageUrl = (rowValues[1] as string || '').trim()
+        const sourceUrl = (rowValues[2] as string || '').trim()
+        
+        if (!title) {
+          return null
+        }
+
+        const validSourceUrl = isValidUrl(sourceUrl) ? sourceUrl : undefined
+        if (validSourceUrl) {
           validLinkCount++
         }
-      }
 
-      const metadata: Record<string, string> = {}
-      const excludeKeys = new Set<string>()
-      
-      for (const key in row) {
-        const normalizedKey = normalizeKey(key)
-        if (
-          section.fieldMappings?.title?.some(t => normalizeKey(t) === normalizedKey) ||
-          section.fieldMappings?.description?.some(d => normalizeKey(d) === normalizedKey) ||
-          section.fieldMappings?.image?.some(i => normalizeKey(i) === normalizedKey) ||
-          section.fieldMappings?.link?.some(l => normalizeKey(l) === normalizedKey)
-        ) {
-          excludeKeys.add(key)
-        }
-      }
-
-      const imageRelatedKeys = ['image_url', 'imageurl', 'image url', 'image', 'photo', 'thumbnail', 'poster']
-      const linkRelatedKeys = ['source_url', 'sourceurl', 'source url', 'url', 'link']
-      
-      for (const [key, value] of Object.entries(row)) {
-        const normalizedKey = normalizeKey(key)
-        const isImageRelated = imageRelatedKeys.some(ik => normalizeKey(ik) === normalizedKey)
-        const isLinkRelated = linkRelatedKeys.some(lk => normalizeKey(lk) === normalizedKey)
+        const metadata: Record<string, string> = {}
         
-        if (!excludeKeys.has(key) && !isImageRelated && !isLinkRelated && value?.trim()) {
-          metadata[key] = value.trim()
-        }
-      }
+        columnNames.slice(3).forEach((columnName, idx) => {
+          const value = (rowValues[idx + 3] as string || '').trim()
+          if (value && columnName) {
+            metadata[columnName] = value
+          }
+        })
 
-      return {
-        id: `${section.id}-${index}`,
-        title: title || '(Untitled)',
-        description,
-        image,
-        link,
-        metadata,
-        section: section.id,
-      }
-    })
+        return {
+          id: `${section.id}-${index}`,
+          title: title || '(Untitled)',
+          description: undefined,
+          image: imageUrl || undefined,
+          link: validSourceUrl,
+          metadata,
+          section: section.id,
+        } as CardData
+      })
+      .filter((card): card is CardData => card !== null)
 
-    if (hasSourceUrlColumn) {
-      console.log(`  → ${validLinkCount} row(s) have valid source_url values`)
-    }
+    console.log(`  → ${cards.length} cards created, ${validLinkCount} with valid source_url`)
 
     cache.set(cacheKey, {
       data: cards,
