@@ -74,9 +74,9 @@ export function Navbar({ sections, onThemeToggle, theme }: NavbarProps) {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="px-4 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, letterSpacing: '0.3px' }}
                 >
-                  <span className="mr-2">{section.emoji}</span>
                   {section.title}
                 </button>
               ))}
@@ -128,9 +128,9 @@ export function Navbar({ sections, onThemeToggle, theme }: NavbarProps) {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="w-full text-left px-4 py-3 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, letterSpacing: '0.3px' }}
                 >
-                  <span className="mr-2">{section.emoji}</span>
                   {section.title}
                 </button>
               ))}

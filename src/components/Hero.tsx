@@ -113,9 +113,9 @@ export function Hero() {
                   backgroundImage: `url(${sectionThumbnails[section.id] || ''})`,
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent" />
               <div className="relative h-full flex items-end justify-center p-3">
-                <span className="section-tab text-white text-center text-sm drop-shadow-lg">
+                <span className="section-tab text-white text-center text-base font-bold drop-shadow-lg" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
                   {section.title}
                 </span>
               </div>
