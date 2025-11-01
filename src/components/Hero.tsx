@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site.config'
 const sectionThumbnails: Record<string, string> = {
   news: '/images/newspaper_headlines__b4b527d4.jpg',
   bollywood: '/images/movie_film_reel_cine_9125d32c.jpg',
-  restaurants: '/images/indian_food_curry_pl_30e0f8db.jpg',
+  restaurants: '/images/vegetarian_indian_food_962d9047.jpg',
   recipes: '/images/cooking_recipe_ingre_16fcac60.jpg',
   events: '/images/cultural_festival_ce_6e502d40.jpg',
   resources: '/images/books_library_learni_c4b0242b.jpg',
