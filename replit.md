@@ -8,6 +8,9 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - ✅ **Development Server**: Running on port 5000 with Vite HMR
 - ✅ **Google Sheets Integration**: Live data fetching with smart caching
 - ✅ **Theme System**: Indian-modern light/dark modes
+- ✅ **Google Authentication**: Optional Google Sign-In in navbar
+- ✅ **User Engagement**: Floating comment/suggestion box
+- ✅ **Rangoli Decorations**: Vibrant Indian-inspired visual elements
 - ✅ **Deployment Ready**: Configured for autoscale production deployment
 - ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching
 
@@ -18,18 +21,22 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - **Animations:** Framer Motion
 - **Data Fetching:** React Query (TanStack Query)
 - **UI Components:** Headless UI (WCAG AA accessible)
+- **Authentication:** @react-oauth/google (Google Identity Services)
 - **CSV Parsing:** PapaParse
 - **Data Source:** Google Sheets (public API) or local CSV files
+- **Database:** PostgreSQL (for future comment storage)
 
 ## Project Structure
 ```
 ├── src/
 │   ├── components/        # React components
-│   │   ├── Navbar.tsx    # Glass-morphism navbar with theme toggle
-│   │   ├── Hero.tsx      # Animated landing section
-│   │   ├── Section.tsx   # Configurable content sections
-│   │   ├── Card.tsx      # Individual content cards
+│   │   ├── Navbar.tsx    # Glass-morphism navbar with Google Sign-In & theme toggle
+│   │   ├── Hero.tsx      # Animated landing with rangoli decorations
+│   │   ├── Section.tsx   # Configurable content sections with background images
+│   │   ├── Card.tsx      # Individual content cards (4-column grid, borders)
 │   │   ├── CardModal.tsx # Accessible detail modal (Headless UI)
+│   │   ├── GoogleAuth.tsx # Google Sign-In component with One Tap
+│   │   ├── CommentBox.tsx # Floating feedback/suggestion box
 │   │   └── Footer.tsx    # Footer with gradient accents
 │   ├── config/
 │   │   └── site.config.ts # All site configuration (sections, sheets, branding)
