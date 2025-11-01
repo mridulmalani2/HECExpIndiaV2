@@ -1,0 +1,12 @@
+- about image missing 
+- about section description says "Learn More About Experience India", it should say "Learn More About the Developer" 
+- on the hero page, there is a "Discover the Vibrant Heart of India" banner floating, with a diya emoji, I want the emoji removed
+- further, on the hero page, there are 6 tabs that redirect to each section with an emoji and a tab name, leave that AS IS, however, in all the CSV linked sections, the section header also has an emoji (for example cinema emoji with bollywood, etc) - remove those emojis from the section headers
+- my about section is linking the profile URL, but I'm updating the CSV with a Source_URL and Image_URL so it can display the image, and link in a card in the same fashion as the other sections. 
+- each section needs to have an animation of some kind for the transition between sections during the vertical scroll. Do some research on how to implement this, and implement a neat-clean-formal transition between sections during the vertical scroll. NOTE - this should not mess with layers, etc or cause issues in the scrolling/navigation experience or affect the navbar in anyway. 
+If the animation is too complex, skip it
+- the light rangoli background for the hero page, make it a little stronger so it's more visible, and remove the two floating star/circle pattern as that is looking a little odd.
+- the way you achieved a background for the hero page, get a customised background for each sub-section that is relevant to the sub-section (publicly sourced images from Google will do, if you're unable of web surfing and finding relevant images, direct me, I will share them) 
+Keep transparency etc so that the background isn't jarring, but ensure that it is visible 
+- news section sub-line says "News from India and France" - change that to "What's happening in India?" 
+- on the hero page, the byline for the website - " Immerse yourself in the colors, flavors, and stories of India — from Bollywood magic to culinary delights", needs to be changed to - "Experience India is a cultural-hub for international students interested in Indian culture, news, movies and more." 
