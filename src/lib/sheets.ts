@@ -51,8 +51,9 @@ function convertSheetUrlToCsv(sheetUrl: string): string {
 function isValidUrl(url: string | undefined): boolean {
   if (!url || !url.trim()) return false
   try {
-    new URL(url.trim())
-    return true
+    const parsed = new URL(url.trim())
+    const allowedSchemes = ['http:', 'https:', 'mailto:']
+    return allowedSchemes.includes(parsed.protocol)
   } catch {
     return false
   }
@@ -115,12 +116,15 @@ export async function fetchSheetData(
       const title = findValue(row, section.fieldMappings?.title || ['title', 'name'])
       const description = findValue(row, section.fieldMappings?.description || ['description', 'summary'])
       const image = findValue(row, section.fieldMappings?.image || ['image', 'image url'])
-      const rawLink = findValue(row, section.fieldMappings?.link || ['source_url', 'url', 'link'])
       
-      const link = isValidUrl(rawLink) ? rawLink.trim() : undefined
+      let link: string | undefined = undefined
       
-      if (link && hasSourceUrlColumn) {
-        validLinkCount++
+      if (hasSourceUrlColumn) {
+        const rawLink = findValue(row, section.fieldMappings?.link || ['source_url', 'url', 'link'])
+        if (isValidUrl(rawLink)) {
+          link = rawLink.trim()
+          validLinkCount++
+        }
       }
 
       const metadata: Record<string, string> = {}
