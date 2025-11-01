@@ -3,6 +3,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("static");
   eleventyConfig.addPassthroughCopy("data");
 
+  // Configure development server
+  eleventyConfig.setServerOptions({
+    port: 5000,
+    host: "0.0.0.0",
+    showAllHosts: true,
+  });
+
   return {
     dir: {
       input: ".",          // main project folder
