@@ -8,6 +8,7 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - ✅ **Development Server**: Running on port 5000 with Vite HMR
 - ✅ **Google Sheets Integration**: Live data fetching with smart caching
 - ✅ **Theme System**: Indian-modern light/dark modes
+- ✅ **Multi-Language Support**: EN/FR toggle using Google Translate widget
 - ✅ **Google Authentication**: Optional Google Sign-In in navbar
 - ✅ **User Engagement**: Floating comment/suggestion box
 - ✅ **Rangoli Decorations**: Vibrant Indian-inspired visual elements
@@ -30,7 +31,8 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 ```
 ├── src/
 │   ├── components/        # React components
-│   │   ├── Navbar.tsx    # Glass-morphism navbar with Google Sign-In & theme toggle
+│   │   ├── Navbar.tsx    # Glass-morphism navbar with language toggle, Google Sign-In & theme
+│   │   ├── LanguageToggle.tsx # 🌐 EN|FR language switcher (Google Translate)
 │   │   ├── Hero.tsx      # Animated landing with rangoli decorations
 │   │   ├── Section.tsx   # Configurable content sections with background images
 │   │   ├── Card.tsx      # Individual content cards (4-column grid, borders)
@@ -115,6 +117,7 @@ sections: [
 ### Typography
 - **Display:** Great Vibes (cursive, hero sections)
 - **Headings:** Playfair Display (serif)
+- **Artistic:** Cormorant Garamond (serif, hero byline, buttons, section tabs)
 - **Body:** Inter (sans-serif)
 
 ### Components
@@ -128,6 +131,7 @@ sections: [
 
 ### User Experience
 - ✅ Sticky glass navbar with smooth scrolling
+- ✅ Language toggle (EN/FR) using Google Translate widget
 - ✅ Theme toggle (light/dark with localStorage persistence)
 - ✅ Global search across all sections
 - ✅ Load more pagination (configurable cards per page)
@@ -178,6 +182,7 @@ All sections pull from Google Sheets or CSV:
 - 🍲 Recipes
 - 🎭 Events
 - 📚 Resources
+- 💬 PeopleSpeak (community testimonials and stories)
 
 ## Migration Notes
 
