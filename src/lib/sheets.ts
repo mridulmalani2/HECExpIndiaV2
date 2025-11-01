@@ -109,8 +109,15 @@ export async function fetchSheetData(
         }
       }
 
+      const imageRelatedKeys = ['image_url', 'imageurl', 'image url', 'image', 'photo', 'thumbnail', 'poster']
+      const linkRelatedKeys = ['source_url', 'sourceurl', 'source url', 'url', 'link']
+      
       for (const [key, value] of Object.entries(row)) {
-        if (!excludeKeys.has(key) && value?.trim()) {
+        const normalizedKey = normalizeKey(key)
+        const isImageRelated = imageRelatedKeys.some(ik => normalizeKey(ik) === normalizedKey)
+        const isLinkRelated = linkRelatedKeys.some(lk => normalizeKey(lk) === normalizedKey)
+        
+        if (!excludeKeys.has(key) && !isImageRelated && !isLinkRelated && value?.trim()) {
           metadata[key] = value.trim()
         }
       }
