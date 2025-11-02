@@ -18,6 +18,14 @@
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    
+    --glass-blur: 12px;
+    --glass-bg-light: rgba(255, 255, 255, 0.16);
+    --glass-bg-dark: rgba(32, 33, 42, 0.30);
+    --glass-border-light: rgba(255, 255, 255, 0.28);
+    --glass-border-dark: rgba(255, 255, 255, 0.12);
+    --glass-shadow-light: 0 4px 20px rgba(0, 0, 0, 0.10);
+    --glass-shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.30);
   }
 
   .dark {
@@ -51,11 +59,18 @@
   }
 
   .card {
-    @apply rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    box-shadow: var(--glass-shadow-light);
+    border-radius: 16px;
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
   }
   
-  .dark .card {
-    background-color: var(--card-bg-dark) !important;
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 26px rgba(0, 0, 0, 0.15);
   }
 
   .btn {
@@ -178,4 +193,36 @@ iframe.goog-te-menu-frame {
 
 .skiptranslate iframe {
   visibility: hidden !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: var(--glass-bg-dark);
+    border-color: var(--glass-border-dark);
+    box-shadow: var(--glass-shadow-dark);
+  }
+}
+
+.dark .card {
+  background-color: var(--glass-bg-dark);
+  border-color: var(--glass-border-dark);
+  box-shadow: var(--glass-shadow-dark);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .card {
+    background-color: rgba(255, 255, 255, 0.85);
+  }
+  @media (prefers-color-scheme: dark) {
+    .card { 
+      background-color: rgba(32, 33, 42, 0.85); 
+    }
+  }
+  .dark .card {
+    background-color: rgba(32, 33, 42, 0.85);
+  }
+}
+
+.card img { 
+  display: block; 
 }

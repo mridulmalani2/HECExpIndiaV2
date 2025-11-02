@@ -1,0 +1,85 @@
+Add a subtle “frosted glass” style to all cards without changing layout or JavaScript. Keep existing borders and shadows. Remove any pastel fills or solid backgrounds. Only edit CSS. Do not add dependencies or refactor HTML.
+
+Scope:
+
+Apply to the shared .card class used across all sections (News, Bollywood, Restaurants, Recipes, Events, India Connect/Resources, PeopleSpeak, About).
+
+Do not change card dimensions, grids, or modal logic.
+
+Keep performance in mind: moderate blur, no heavy filters on large containers.
+
+Implementation (append to the main CSS file; if Tailwind, add to a global CSS layer):
+
+Remove or override any solid or pastel background on .card.
+
+Add backdrop blur and semi-transparent surfaces for light and dark modes.
+
+Include a graceful fallback for browsers without backdrop-filter.
+
+Keep hover lift and shadow subtle.
+
+Exact CSS to add:
+
+/* Frosted glass cards (light/dark aware) /
+:root {
+--glass-blur: 12px; / moderate blur for good performance */
+--glass-bg-light: rgba(255, 255, 255, 0.16);
+--glass-bg-dark: rgba(32, 33, 42, 0.30);
+--glass-border-light: rgba(255, 255, 255, 0.28);
+--glass-border-dark: rgba(255, 255, 255, 0.12);
+--glass-shadow-light: 0 4px 20px rgba(0, 0, 0, 0.10);
+--glass-shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.30);
+}
+
+/* Base (light mode by default) */
+.card {
+background-color: var(--glass-bg-light);
+backdrop-filter: blur(var(--glass-blur));
+-webkit-backdrop-filter: blur(var(--glass-blur));
+border: 1px solid var(--glass-border-light);
+box-shadow: var(--glass-shadow-light);
+border-radius: 16px;
+transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
+}
+
+/* Hover (subtle lift) */
+.card:hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 26px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+.card {
+background-color: var(--glass-bg-dark);
+border-color: var(--glass-border-dark);
+box-shadow: var(--glass-shadow-dark);
+}
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+.card {
+background-color: rgba(255, 255, 255, 0.85);
+}
+@media (prefers-color-scheme: dark) {
+.card { background-color: rgba(32, 33, 42, 0.85); }
+}
+}
+
+/* Keep inner thumbnails/text unaffected */
+.card img { display:block; }
+
+Clean-up:
+
+Remove or override any previous .card background: ... color blocks.
+
+Do not apply blur to full-page containers or wallpapers (only .card) to avoid extra GPU work.
+
+Acceptance:
+
+Cards display a subtle frosted-glass look on both light and dark backgrounds.
+
+No color fills remain; wallpaper is faintly visible through cards.
+
+Layout and spacing unchanged; hover animations remain smooth; performance stable.

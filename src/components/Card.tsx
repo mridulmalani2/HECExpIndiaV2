@@ -8,21 +8,11 @@ interface CardProps {
   index: number
 }
 
-const pastelColors = {
-  light: ['#FFE8D6', '#DFF7E3', '#E7F3FF', '#F3E8FF'],
-  dark: ['#4A4150', '#35585C', '#4E475C', '#383740']
-}
-
 export function Card({ card, onCardClick, index }: CardProps) {
   const [imageError, setImageError] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const hasLink = Boolean(card.link)
-  const bgColorIndex = index % 4
-  const bgColor = {
-    light: pastelColors.light[bgColorIndex],
-    dark: pastelColors.dark[bgColorIndex]
-  }
 
   const handleClick = () => {
     onCardClick(card)
@@ -35,11 +25,7 @@ export function Card({ card, onCardClick, index }: CardProps) {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -8, scale: 1.03, transition: { duration: 0.2 } }}
-      className="card overflow-hidden group cursor-pointer h-full flex flex-col border-2 border-gray-200 dark:border-gray-700 hover:border-saffron-500 dark:hover:border-saffron-400 hover:shadow-2xl"
-      style={{
-        backgroundColor: bgColor.light,
-        ['--card-bg-dark' as string]: bgColor.dark
-      }}
+      className="card overflow-hidden group cursor-pointer h-full flex flex-col"
       onClick={handleClick}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">

@@ -7,12 +7,12 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - ✅ **Complete Redesign**: Modern React + TypeScript + Tailwind stack
 - ✅ **Development Server**: Running on port 5000 with Vite HMR
 - ✅ **Google Sheets Integration**: Live data fetching with smart caching (3-column CSV structure)
-- ✅ **Theme System**: Indian-modern light/dark modes with pastel card backgrounds
+- ✅ **Theme System**: Indian-modern light/dark modes with frosted glass cards
 - ✅ **Google Authentication**: Optional Google Sign-In in navbar
 - ✅ **User Engagement**: Floating comment/suggestion box
 - ✅ **Rangoli Decorations**: Vibrant Indian-inspired visual elements
 - ✅ **Deployment Ready**: Configured for autoscale production deployment
-- ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching
+- ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching, optimized blur
 - ✅ **Elegant Typography**: Cormorant Garamond navbar matching artistic hero design
 - ✅ **SEO Ready**: robots.txt, sitemap.xml, meta tags, alt text on all images
 - ✅ **Accessibility**: WCAG AA compliant with lazy loading and descriptive alt text
@@ -115,18 +115,20 @@ sections: [
 - **Marigold:** Warm tones (#f97316)
 - **Indigo:** Deep accents (#6366f1)
 
-### Pastel Card Backgrounds
-**Light Mode:** Soft, low-saturation pastels
-- Pastel Peach: #FFE8D6
-- Soft Mint: #DFF7E3
-- Powder Blue: #E7F3FF
-- Lavender Mist: #F3E8FF
+### Frosted Glass Cards
+**Light Mode:** 
+- Background: rgba(255, 255, 255, 0.16)
+- Border: rgba(255, 255, 255, 0.28)
+- Blur: 12px
+- Shadow: 0 4px 20px rgba(0, 0, 0, 0.10)
 
-**Dark Mode:** Muted, blended tones
-- Muted Mauve: #4A4150
-- Dusty Teal: #35585C
-- Slate Lavender: #4E475C
-- Warm Charcoal: #383740
+**Dark Mode:**
+- Background: rgba(32, 33, 42, 0.30)
+- Border: rgba(255, 255, 255, 0.12)
+- Blur: 12px
+- Shadow: 0 4px 20px rgba(0, 0, 0, 0.30)
+
+**Fallback:** Browsers without backdrop-filter support show semi-opaque backgrounds (85% opacity)
 
 ### Typography
 - **Display:** Great Vibes (cursive, hero sections)
@@ -135,12 +137,12 @@ sections: [
 - **Body:** Inter (sans-serif)
 
 ### Components
-- **Glass Morphism:** Navbar with backdrop blur
+- **Glass Morphism:** Navbar and cards with backdrop blur
 - **Gradient Text:** Multi-color gradients for headings
 - **Smooth Animations:** Framer Motion for page transitions
 - **Accessible Modals:** Headless UI with keyboard navigation
 - **Responsive Grid:** 1/2/3 columns based on viewport
-- **Pastel Cards:** Alternating pastel backgrounds (4 colors each for light/dark modes)
+- **Frosted Glass Cards:** Subtle translucent cards with backdrop-filter blur (12px)
 
 ## Features
 
@@ -218,7 +220,7 @@ All sections pull from Google Sheets with standardized 3-column CSV structure (T
   - Added robots.txt + sitemap.xml for SEO
   - Implemented lazy loading + alt text for all images
   - Added comprehensive meta tags (keywords, author, canonical URL)
-  - Added pastel card backgrounds (4 colors alternating in light/dark modes)
+  - Implemented frosted glass cards with backdrop-filter blur for modern aesthetic
 
 ### Why React?
 - Modern, component-based architecture
