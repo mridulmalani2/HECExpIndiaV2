@@ -117,18 +117,18 @@ sections: [
 
 ### Frosted Glass Cards
 **Light Mode:** 
-- Background: rgba(255, 255, 255, 0.16)
-- Border: rgba(255, 255, 255, 0.28)
+- Background: rgba(255, 255, 255, 0.08)
+- Border: rgba(255, 255, 255, 0.20)
 - Blur: 12px
 - Shadow: 0 4px 20px rgba(0, 0, 0, 0.10)
 
 **Dark Mode:**
-- Background: rgba(32, 33, 42, 0.30)
-- Border: rgba(255, 255, 255, 0.12)
+- Background: rgba(32, 33, 42, 0.15)
+- Border: rgba(255, 255, 255, 0.10)
 - Blur: 12px
 - Shadow: 0 4px 20px rgba(0, 0, 0, 0.30)
 
-**Fallback:** Browsers without backdrop-filter support show semi-opaque backgrounds (85% opacity)
+**Fallback:** Browsers without backdrop-filter support show semi-opaque backgrounds (70% opacity)
 
 ### Typography
 - **Display:** Great Vibes (cursive, hero sections)
