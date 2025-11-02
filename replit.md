@@ -6,14 +6,16 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 ## Project Status
 - ✅ **Complete Redesign**: Modern React + TypeScript + Tailwind stack
 - ✅ **Development Server**: Running on port 5000 with Vite HMR
-- ✅ **Google Sheets Integration**: Live data fetching with smart caching
-- ✅ **Theme System**: Indian-modern light/dark modes
+- ✅ **Google Sheets Integration**: Live data fetching with smart caching (3-column CSV structure)
+- ✅ **Theme System**: Indian-modern light/dark modes with pastel card backgrounds
 - ✅ **Google Authentication**: Optional Google Sign-In in navbar
 - ✅ **User Engagement**: Floating comment/suggestion box
 - ✅ **Rangoli Decorations**: Vibrant Indian-inspired visual elements
 - ✅ **Deployment Ready**: Configured for autoscale production deployment
 - ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching
 - ✅ **Elegant Typography**: Cormorant Garamond navbar matching artistic hero design
+- ✅ **SEO Ready**: robots.txt, sitemap.xml, meta tags, alt text on all images
+- ✅ **Accessibility**: WCAG AA compliant with lazy loading and descriptive alt text
 
 ## Tech Stack
 - **Frontend:** React 18 + TypeScript
@@ -113,6 +115,19 @@ sections: [
 - **Marigold:** Warm tones (#f97316)
 - **Indigo:** Deep accents (#6366f1)
 
+### Pastel Card Backgrounds
+**Light Mode:** Soft, low-saturation pastels
+- Pastel Peach: #FFE8D6
+- Soft Mint: #DFF7E3
+- Powder Blue: #E7F3FF
+- Lavender Mist: #F3E8FF
+
+**Dark Mode:** Muted, blended tones
+- Muted Mauve: #4A4150
+- Dusty Teal: #35585C
+- Slate Lavender: #4E475C
+- Warm Charcoal: #383740
+
 ### Typography
 - **Display:** Great Vibes (cursive, hero sections)
 - **Headings:** Playfair Display (serif)
@@ -125,6 +140,7 @@ sections: [
 - **Smooth Animations:** Framer Motion for page transitions
 - **Accessible Modals:** Headless UI with keyboard navigation
 - **Responsive Grid:** 1/2/3 columns based on viewport
+- **Pastel Cards:** Alternating pastel backgrounds (4 colors each for light/dark modes)
 
 ## Features
 
@@ -146,8 +162,13 @@ sections: [
 - ✅ Responsive image loading
 
 ### SEO & Accessibility
-- ✅ Meta tags in index.html
-- ✅ Open Graph tags
+- ✅ robots.txt (allows all crawlers, references sitemap.xml)
+- ✅ sitemap.xml (all section URLs under experienceindia.replit.app)
+- ✅ Meta tags with keywords, description, author
+- ✅ Open Graph tags for social sharing
+- ✅ Canonical URL
+- ✅ Lazy loading on all images (loading="lazy")
+- ✅ Alt text on all images (using card titles)
 - ✅ ARIA labels on interactive elements
 - ✅ Keyboard navigation
 - ✅ Screen reader friendly
@@ -174,23 +195,30 @@ VITE_LOGO_URL=https://your-logo-url.com/logo.png
 ```
 
 ## Sections (Configurable)
-All sections pull from Google Sheets or CSV:
-- 📰 News
-- 🎬 Bollywood
-- 🍛 Restaurants
-- 🍲 Recipes
-- 🎭 Events
-- 📚 Resources
+All sections pull from Google Sheets with standardized 3-column CSV structure (Title, Image_URL, Source_URL + optional metadata):
+- 📰 News (23 articles with summaries)
+- 🎬 Bollywood (96 movies with metadata)
+- 🍛 Restaurants (19 Paris Indian restaurants with details)
+- 🍲 Recipes (6 student-friendly Indian recipes)
+- 🎭 Events (3 cultural events and celebrations)
+- 📚 India Toolkit (6 resources - "Discover, connect, and thrive - your toolkit to India, HEC, and life in Paris")
 - 💬 PeopleSpeak (community testimonials and stories)
+- ℹ️ About (developer information)
 
 ## Migration Notes
 
-### What Changed (Nov 1, 2025)
+### What Changed (Nov 1-2, 2025)
 - ❌ **Removed:** Eleventy, Flask, Nunjucks, old static files
 - ✅ **Added:** React, TypeScript, Vite, Tailwind, Framer Motion
 - ✅ **Upgraded:** Node 18 → Node 22 (required for Vite 6)
 - ✅ **New Features:** Live Google Sheets, theme toggle, search, modals
 - ✅ **Design:** Complete visual redesign with Indian-modern aesthetics
+- ✅ **Nov 2 Updates:** 
+  - Renamed "Resources" to "India Toolkit" with updated byline
+  - Added robots.txt + sitemap.xml for SEO
+  - Implemented lazy loading + alt text for all images
+  - Added comprehensive meta tags (keywords, author, canonical URL)
+  - Added pastel card backgrounds (4 colors alternating in light/dark modes)
 
 ### Why React?
 - Modern, component-based architecture

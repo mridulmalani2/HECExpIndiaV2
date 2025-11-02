@@ -1,0 +1,30 @@
+Rename the section ‘Resources’ to ‘India Toolkit’ : make sure the rename is reflected everywhere as relevant 
+In the Resources section, the byline needs to be changed to - 
+Discover, connect, and thrive - your toolkit to India, HEC, and life in Paris.
+Add robots.txt + sitemap.xml files (Lets Google and Bing index the pages correctly).
+Create /robots.txt allowing all crawlers and referencing /sitemap.xml. Generate a basic /sitemap.xml listing all section URLs under https://experienceindia.replit.app/.
+Add lazy loading + alt text for all images (This speeds up loading and improves accessibility.)
+Add loading="lazy" to all <img> elements. For alt text, use the card’s title if no alt text is provided.
+Add meta tags and titles per section (Give every section its own <title> and <meta name="description">. These help search engines identify what each section is about and improve click-throughs.)
+Add unique meta titles and descriptions for each section (News, Bollywood, Restaurants, Recipes, Events, India Connect, PeopleSpeak, About). Keep each description under 160 characters.
+Lastly, in the cards, there’s two parts - image and the part below it with text, etc - the part with text, etc has a background that matches the website background, but it looks a bit bland like that, so we want to add some pastel colors to the cards (but remember the color should be a background for the whole card, and then we have the image, text, etc sit on top of it exactly as it is right now) - 
+
+
+Light mode: soft pastel card backgrounds
+Pick 4 pastel shades so each card can alternate or use a subtle vary. Example hexes:
+Pastel Peach: #FFE8D6
+Soft Mint: #DFF7E3
+Powder Blue: #E7F3FF
+Lavender Mist: #F3E8FF
+
+These are gentle and will sit on white or near-white without clashing. 
+(“Pastel colours are soft, low-saturation / high-lightness”)
+
+Dark mode: muted pastel card backgrounds on dark surface Example hexes:
+
+Muted Mauve: #4A4150
+Dusty Teal: #35585C
+Slate Lavender: #4E475C
+Warm Charcoal Accent: #383740
+
+These blend with the dark background, giving card surfaces that are distinct but soft—not high-vibrancy. 

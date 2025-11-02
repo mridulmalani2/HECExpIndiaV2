@@ -80,9 +80,9 @@ export const siteConfig: SiteConfig = {
     },
     {
       id: 'resources',
-      title: 'Resources',
+      title: 'India Toolkit',
       emoji: '📚',
-      description: 'Helpful guides and information',
+      description: 'Discover, connect, and thrive - your toolkit to India, HEC, and life in Paris.',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=6162414&single=true&output=csv',
       enabled: true,
       backgroundImage: '/images/india_travel_guide_t_eb81754d.jpg',
