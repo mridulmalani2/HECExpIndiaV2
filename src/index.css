@@ -20,7 +20,7 @@
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
     
     --glass-blur: 12px;
-    --glass-bg-light: rgba(255, 255, 255, 0.03);
+    --glass-bg-light: rgba(255, 255, 255, 0);
     --glass-bg-dark: rgba(32, 33, 42, 0.12);
     --glass-border-light: rgba(255, 255, 255, 0.25);
     --glass-border-dark: rgba(255, 255, 255, 0.15);

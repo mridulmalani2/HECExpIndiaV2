@@ -117,7 +117,7 @@ sections: [
 
 ### Frosted Glass Cards
 **Light Mode:** 
-- Background: rgba(255, 255, 255, 0.03)
+- Background: rgba(255, 255, 255, 0) - 100% transparent
 - Border: rgba(255, 255, 255, 0.25)
 - Blur: 12px
 - Shadow: 0 4px 20px rgba(0, 0, 0, 0.10)
