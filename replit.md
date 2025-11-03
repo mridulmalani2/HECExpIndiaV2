@@ -16,6 +16,7 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - ✅ **Elegant Typography**: Cormorant Garamond navbar matching artistic hero design
 - ✅ **SEO Ready**: robots.txt, sitemap.xml, meta tags, alt text on all images
 - ✅ **Accessibility**: WCAG AA compliant with lazy loading and descriptive alt text
+- ✅ **Smart Pagination**: Load More/Show Less buttons for optimal content browsing
 
 ## Tech Stack
 - **Frontend:** React 18 + TypeScript
@@ -150,7 +151,7 @@ sections: [
 - ✅ Sticky glass navbar with smooth scrolling and Cormorant Garamond typography
 - ✅ Theme toggle (light/dark with localStorage persistence)
 - ✅ Global search across all sections
-- ✅ Load more pagination (configurable cards per page)
+- ✅ Smart pagination (Load More + Show Less buttons, configurable cards per page)
 - ✅ Click images to open external links
 - ✅ Click cards to view metadata modal
 - ✅ Keyboard accessible throughout

@@ -150,16 +150,28 @@ export function Section({ section, searchQuery }: SectionProps) {
             ))}
           </div>
 
-          {hasMore && (
-            <div className="text-center">
-              <motion.button
-                onClick={() => setVisibleCount(prev => prev + siteConfig.features.cardsPerPage)}
-                className="btn btn-secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Load More
-              </motion.button>
+          {(hasMore || visibleCount > siteConfig.features.cardsPerPage) && (
+            <div className="text-center flex gap-4 justify-center">
+              {hasMore && (
+                <motion.button
+                  onClick={() => setVisibleCount(prev => prev + siteConfig.features.cardsPerPage)}
+                  className="btn btn-secondary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Load More
+                </motion.button>
+              )}
+              {visibleCount > siteConfig.features.cardsPerPage && (
+                <motion.button
+                  onClick={() => setVisibleCount(siteConfig.features.cardsPerPage)}
+                  className="btn btn-secondary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Show Less
+                </motion.button>
+              )}
             </div>
           )}
         </div>
