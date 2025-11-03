@@ -116,7 +116,7 @@ export function Section({ section, searchQuery }: SectionProps) {
         {/* Background overlay */}
         {section.backgroundImage && (
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-900/95"
+            className="absolute inset-0 bg-gradient-to-b from-white/[0.73] via-white/[0.69] to-white/[0.73] dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-900/95"
             style={{
               backgroundColor: section.backgroundOverlay || undefined,
             }}
