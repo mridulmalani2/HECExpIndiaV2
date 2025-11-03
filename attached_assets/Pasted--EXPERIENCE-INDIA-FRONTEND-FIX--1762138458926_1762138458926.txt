@@ -1,0 +1,130 @@
+<!-- =========================================================
+     EXPERIENCE INDIA FRONTEND FIX
+     TASK 1: SMART IMAGE CROPPING  (free, no API calls)
+     TASK 2: SET CARD TRANSPARENCY TO 75%
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience India - Smart Crop Test</title>
+  <style>
+    /* ---------- GENERAL LAYOUT ---------- */
+    body {
+      background: #faf7f5;
+      font-family: "Nunito", sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    /* ---------- TASK 2: CARD TRANSPARENCY (75%) ---------- */
+    .card {
+      background: rgba(255, 255, 255, 0.75);  /* 75% opaque */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      margin: 0.8rem 1rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #222;
+    }
+
+    /* ---------- POSTER / IMAGE ---------- */
+    .smart-crop {
+      width: 100%;
+      aspect-ratio: 3 / 4;     /* typical movie-poster shape */
+      object-fit: cover;
+      border-radius: 0;
+      display: block;
+      background: #1112;       /* light placeholder */
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SAMPLE CARDS -->
+  <div class="card">
+    <img class="smart-crop" src="images/posters/sholay.jpg" alt="Sholay poster">
+    <h3>Sholay</h3>
+  </div>
+
+  <div class="card">
+    <img class="smart-crop" src="images/posters/dilwale_dulhania_le_jayenge.jpg" alt="DDLJ poster">
+    <h3>Dilwale Dulhania Le Jayenge</h3>
+  </div>
+
+  <div class="card">
+    <img class="smart-crop" src="images/posters/lagaan.jpg" alt="Lagaan poster">
+    <h3>Lagaan</h3>
+  </div>
+
+  <!-- =========================================================
+       TASK 1: SMART CROPPING SCRIPT (client-side, no API)
+  ========================================================= -->
+  <script src="https://unpkg.com/smartcrop@2.0.5/smartcrop.js"></script>
+  <script>
+  (function () {
+    const TARGET_WIDTH  = 600;  // output render width
+    const TARGET_HEIGHT = 800;  // must match 3/4 aspect ratio
+
+    function smartCropImage(img) {
+      if (!img || img.dataset.cropped === "1") return;
+
+      const loader = new Image();
+      loader.crossOrigin = "anonymous";
+      loader.src = img.src;
+
+      loader.onload = function () {
+        smartcrop.crop(loader, { width: TARGET_WIDTH, height: TARGET_HEIGHT, ruleOfThirds: true })
+          .then(result => {
+            const crop = result.topCrop;
+            const canvas = document.createElement('canvas');
+            canvas.width = TARGET_WIDTH;
+            canvas.height = TARGET_HEIGHT;
+            const ctx = canvas.getContext('2d');
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            ctx.drawImage(loader, crop.x, crop.y, crop.width, crop.height, 0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+
+            try {
+              const dataURL = canvas.toDataURL('image/jpeg', 0.85);
+              img.src = dataURL;
+              img.dataset.cropped = "1";
+            } catch (e) {
+              img.style.objectPosition = '50% 30%';  // fallback focal point
+            }
+          })
+          .catch(() => {
+            img.style.objectPosition = '50% 30%';
+          });
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const imgs = document.querySelectorAll('img.smart-crop');
+      imgs.forEach(smartCropImage);
+    });
+
+    window.applySmartCrop = function (root = document) {
+      const imgs = root.querySelectorAll('img.smart-crop:not([data-cropped="1"])');
+      imgs.forEach(smartCropImage);
+    };
+  })();
+  </script>
+
+</body>
+</html>
