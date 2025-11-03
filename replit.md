@@ -122,6 +122,7 @@ sections: [
 - Border: rgba(255, 255, 255, 0.25)
 - Blur: 12px
 - Shadow: 0 4px 20px rgba(0, 0, 0, 0.10)
+- Section Background Overlay: 81%/84%/81% (allows 16-19% background visibility)
 
 **Dark Mode:**
 - Background: rgba(32, 33, 42, 0.12)

@@ -103,6 +103,7 @@ export const siteConfig: SiteConfig = {
       description: 'Learn More About the Developer',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQDSQLX2XttGTN_wQrtIK_8rfEMwDxx8cnlShmze6z-XQGalPer_3YNrc4jUufSzkk1Av6rP0yRcvcu/pub?gid=1083212065&single=true&output=csv',
       enabled: true,
+      backgroundImage: '/images/about_developer_workspace_32db0f32.jpg',
     },
   ],
   
