@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import type { CardData } from '@/types'
+import { applySmartCrop } from '@/utils/smartCrop'
 
 interface CardProps {
   card: CardData
@@ -11,8 +12,19 @@ interface CardProps {
 export function Card({ card, onCardClick, index }: CardProps) {
   const [imageError, setImageError] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
 
   const hasLink = Boolean(card.link)
+
+  useEffect(() => {
+    if (imageLoaded && imgRef.current && card.section === 'bollywood') {
+      applySmartCrop(imgRef.current).catch(() => {
+        if (imgRef.current) {
+          imgRef.current.style.objectPosition = '50% 30%'
+        }
+      })
+    }
+  }, [imageLoaded, card.section])
 
   const handleClick = () => {
     onCardClick(card)
@@ -37,12 +49,13 @@ export function Card({ card, onCardClick, index }: CardProps) {
               </div>
             )}
             <img
+              ref={imgRef}
               src={card.image}
               alt={card.title}
               loading="lazy"
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageError(true)}
-              className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+              className={`smart-crop w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
             />

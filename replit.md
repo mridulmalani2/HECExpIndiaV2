@@ -12,7 +12,7 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - ✅ **User Engagement**: Floating comment/suggestion box
 - ✅ **Rangoli Decorations**: Vibrant Indian-inspired visual elements
 - ✅ **Deployment Ready**: Configured for autoscale production deployment
-- ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching, optimized blur
+- ✅ **Performance Optimized**: Lazy loading, responsive images, smart caching, optimized blur, smart image cropping
 - ✅ **Elegant Typography**: Cormorant Garamond navbar matching artistic hero design
 - ✅ **SEO Ready**: robots.txt, sitemap.xml, meta tags, alt text on all images
 - ✅ **Accessibility**: WCAG AA compliant with lazy loading and descriptive alt text
@@ -117,14 +117,14 @@ sections: [
 
 ### Frosted Glass Cards
 **Light Mode:** 
-- Background: rgba(255, 255, 255, 0.08)
-- Border: rgba(255, 255, 255, 0.20)
+- Background: rgba(255, 255, 255, 0.03)
+- Border: rgba(255, 255, 255, 0.25)
 - Blur: 12px
 - Shadow: 0 4px 20px rgba(0, 0, 0, 0.10)
 
 **Dark Mode:**
-- Background: rgba(32, 33, 42, 0.15)
-- Border: rgba(255, 255, 255, 0.10)
+- Background: rgba(32, 33, 42, 0.12)
+- Border: rgba(255, 255, 255, 0.15)
 - Blur: 12px
 - Shadow: 0 4px 20px rgba(0, 0, 0, 0.30)
 
@@ -162,6 +162,7 @@ sections: [
 - ✅ Vite code splitting
 - ✅ Production optimized builds
 - ✅ Responsive image loading
+- ✅ Smart image cropping for Bollywood posters (3:4 aspect ratio with rule of thirds)
 
 ### SEO & Accessibility
 - ✅ robots.txt (allows all crawlers, references sitemap.xml)
@@ -215,12 +216,13 @@ All sections pull from Google Sheets with standardized 3-column CSV structure (T
 - ✅ **Upgraded:** Node 18 → Node 22 (required for Vite 6)
 - ✅ **New Features:** Live Google Sheets, theme toggle, search, modals
 - ✅ **Design:** Complete visual redesign with Indian-modern aesthetics
-- ✅ **Nov 2 Updates:** 
+- ✅ **Nov 2-3 Updates:** 
   - Renamed "Resources" to "India Toolkit" with updated byline
   - Added robots.txt + sitemap.xml for SEO
   - Implemented lazy loading + alt text for all images
   - Added comprehensive meta tags (keywords, author, canonical URL)
   - Implemented frosted glass cards with backdrop-filter blur for modern aesthetic
+  - Added smart image cropping for Bollywood section (smartcrop.js with rule of thirds)
 
 ### Why React?
 - Modern, component-based architecture
