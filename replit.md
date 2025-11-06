@@ -72,10 +72,11 @@ A modern, React-based cultural discovery platform for HEC Paris students to expl
 - **Preview:** `npm run preview`
 
 ### Deployment
-- **Type:** Autoscale (serverless SPA)
+- **Type:** Static (recommended) or Autoscale
 - **Build:** `npm run build`
 - **Output:** `dist/` directory
 - **Preview:** `npx vite preview --host=0.0.0.0 --port=5000`
+- **Note:** This is a pure client-side React SPA with no server dependencies. Static deployment is recommended for better performance and lower costs. To deploy as Static, use the Replit UI: Click "Deploy" → Select "Static" → Publish.
 
 ## Content Management
 
