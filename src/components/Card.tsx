@@ -37,10 +37,10 @@ export function Card({ card, onCardClick, index }: CardProps) {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -8, scale: 1.03, transition: { duration: 0.2 } }}
-      className="card overflow-hidden group cursor-pointer h-full flex flex-col"
+      className="card hover-reveal-card overflow-hidden group cursor-pointer h-full flex flex-col"
       onClick={handleClick}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
+      <div className="card-image-wrapper relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
         {card.image && !imageError ? (
           <>
             {!imageLoaded && (
@@ -73,7 +73,7 @@ export function Card({ card, onCardClick, index }: CardProps) {
         )}
       </div>
 
-      <div className="p-5 flex-1 flex flex-col">
+      <div className="card-content p-5 flex-1 flex flex-col">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2 group-hover:text-saffron-600 dark:group-hover:text-saffron-400 transition-colors">
           {card.title}
         </h3>
